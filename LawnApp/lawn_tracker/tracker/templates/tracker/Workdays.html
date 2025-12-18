@@ -2,32 +2,37 @@
 
 {% block content %}
     <body>
-        <h1 class="title">Work Days</h1>
-        <table class="workday-table">
-            <tr>
-                <th>Date</th>
-                <th>Yards Cut</th>
-                <th>Employees</th>
-            </tr>
-            {% for day in workdays %}
-            <tr>
-                <td>{{day.date}}</td>
-                <td>
-                    <ul>
-                        {% for yard in day.yards_cut.all %}
-                            <li><a href="{% url 'yard_detail' yard.id %}">{{yard.address}}</a></li> 
-                        {% endfor %}
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        {% for emp in day.staff.all %}
-                            <li><a href="{% url 'employee_detail' emp.id %}">{{emp.name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-            {% endfor %}         
-        </table>
+        <div class="detail-page">
+            {% if user.is_authenticated %}
+                <a href="{% url 'new_workday' %}" class="new-button">{% include './icons/plus-square.svg'%}Add a New Day</a>
+            {% endif %}
+            <h1 class="title">Work Days</h1>
+            <table class="workday-table">
+                <tr>
+                    <th>Date</th>
+                    <th>Yards Cut</th>
+                    <th>Employees</th>
+                </tr>
+                {% for day in workdays %}
+                <tr>
+                    <td>{{day.date}}</td>
+                    <td>
+                        <ul>
+                            {% for yard in day.yards_cut.all %}
+                                <li><a href="{% url 'yard_detail' yard.id %}">{{yard.address}}</a></li> 
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for emp in day.staff.all %}
+                                <li><a href="{% url 'employee_detail' emp.id %}">{{emp.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}         
+            </table>
+        </div>
     </body>
 {% endblock %}

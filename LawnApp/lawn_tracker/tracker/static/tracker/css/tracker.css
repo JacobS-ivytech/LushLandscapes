@@ -1,5 +1,6 @@
 html {
     background-color: bisque;
+    font-size: larger;
 }
 
 .page-header {
@@ -47,4 +48,14 @@ ul {
     display: inline-block;
     margin-bottom: 20px;
     border:solid;
+}
+
+.new-form {
+    text-align: center;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
