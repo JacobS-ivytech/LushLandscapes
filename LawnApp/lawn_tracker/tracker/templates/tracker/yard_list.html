@@ -1,0 +1,21 @@
+{% extends 'tracker/core.html' %}
+
+{% block content %}
+    <div class="detail-page">
+        {% if user.is_authenticated %}
+            <a href="{% url 'new_yard' %}" class="new-button">Add a New Yard</a>
+        {% endif %}
+        <table class="workday-table">
+            <tr>
+                <th>Address</th>
+                <th>Time to Cut</th>
+            </tr>
+            {% for yard in yards %}
+                <tr>
+                    <td><a href="{% url 'yard_detail' yard.pk %}">{{yard.address}}</a></td>
+                    <td>{{yard.time}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

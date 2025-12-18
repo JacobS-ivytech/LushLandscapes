@@ -1,0 +1,16 @@
+{% extends 'tracker/core.html' %}
+
+{% block content %}
+    <body class="detail-page">
+        <h1>{{yard.address}}</h1>
+        <h2>{{yard.time}} min. Expected Trim Time</h2>
+        <div class="yard-cut-days">
+            <h2>Dates Cut</h2>
+            {% for day in work_day %}
+                <div>{{day.date}}</div>
+            {% empty %}
+                <p>This is a new yard!</p>
+            {% endfor %}
+        </div>
+    </body>
+{% endblock %}

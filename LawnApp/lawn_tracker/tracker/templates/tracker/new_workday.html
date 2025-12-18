@@ -1,0 +1,11 @@
+{% extends 'tracker/core.html' %}
+
+{% block content %}
+    <div class="detail-page">
+        <h2>New Work Day</h2>
+        <form method="POST" class="workday-form">{%csrf_token%}
+        {{form.as_p}}
+        <button type="submit" class="save-btn">Save</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'tracker/core.html' %}
+
+{% block content %}
+    <div class="detail-page">
+        {% if user.is_authenticated %}
+            <a href="{% url 'new_employee' %}" class="new-button">Add a New Employee</a>
+        {% endif %}
+            <table class="workday-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                </tr>
+                {% for employee in employees %}
+                    <tr>
+                        <td><a href="{% url 'employee_detail' employee.pk %}">{{employee.name}}</a></td>
+                        <td>{{employee.contact}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+    </div>
+{% endblock %}

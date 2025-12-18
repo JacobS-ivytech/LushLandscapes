@@ -1,0 +1,50 @@
+html {
+    background-color: bisque;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 25px;
+}
+
+h1 a {
+    color:rgb(45, 121, 45);
+}
+
+.title {
+    background-color: lightslategray;
+    text-align: center;
+    margin-inline: 30%
+}
+
+.workday-table {
+    margin: auto;
+    list-style-type: lower-alpha;
+}
+
+td {
+    border-bottom: 1px solid;
+}
+
+th {
+    border: 1px solid;
+    background-color: white;
+}
+
+ul {
+    list-style-type: square;
+}
+
+.detail-page {
+    text-align: center;
+    margin: auto;
+}
+
+.new-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    border:solid;
+}

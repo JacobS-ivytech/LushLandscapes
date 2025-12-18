@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lush Landscapes</title>
+        <link rel="stylesheet" href="{% static 'tracker/css/tracker.css' %}">
+    </head>
+    <body>
+        <header class="page-header">
+                <h1><a href="/">Lush Landscapes</a></h1>
+                <h2><a href="{% url 'yard_list'%}">YARDS</a></h2>
+                <h2><a href="{% url 'employee_list' %}">EMPLOYEES</a></h2>
+            {% if user.is_authenticated %}
+                <a href="{% url 'new_workday' %}" class="work-button">{% include './icons/plus-square.svg'%}Add a New Day</a>
+                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="work-button">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}" class="work-button">{% include './icons/cup-hot.svg'%}Let's get started</a>
+            {% endif %}
+        </header>
+        <main class="container">
+            {% block content %}
+            {% endblock %}
+        </main>        
+    </body>
